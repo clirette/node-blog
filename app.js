@@ -5,6 +5,7 @@ const passport = require("passport");
 const cors = require("cors");
 
 const users = require("./api/users");
+const posts = require("./api/posts");
 
 const app = express();
 
@@ -22,6 +23,7 @@ app.use(passport.initialize());
 require("./config/passport")(passport);
 
 app.use("/api/users", users);
+app.use("/api/posts", posts);
 
 const port = process.env.PORT || 8000;
 app.listen(port, () => console.log(`Listening on port ${port}`));
